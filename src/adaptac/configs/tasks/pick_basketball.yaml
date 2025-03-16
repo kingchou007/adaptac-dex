@@ -1,0 +1,3 @@
+data_path: data/task1_dataset
+ckpt_dir: logs/task1
+aug: true
