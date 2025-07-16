@@ -8,7 +8,8 @@ Welcome to the official repository for the implementation of the paper titled **
 
 ## TODO
 - [x] Add the hardware setup, [here](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho)
-- [x] Release the pre-train code and encoder, download from [here](https://huggingface.co/datasets/adaptac-dex/adaptac-dex-pretrain)
+- [x] Released the pre-trained [code](https://github.com/tianhaowuhz/3dtacdex) and [checkpoint](https://huggingface.co/kingchou007/3dTacDex/tree/main)
+  - We recommend training your own model using the provided code.
 - [ ] Release the dataset
 - [ ] Release the code
 - [ ] Further clean up the code
