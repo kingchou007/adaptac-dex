@@ -17,7 +17,7 @@ Welcome to the official repository for the implementation of the paper titled **
 
 ## Contact
 
-If you have any questions, please contact [Jinzhou Li](https://jinzhou-li.github.io/) or [Tianhao Wu](https://tianhaowu.github.io/).
+If you have any questions, please contact [Jinzhou Li](https://kingchou007.github.io/) or [Tianhao Wu](https://tianhaowuhz.github.io/).
 
 ## Citation
 
