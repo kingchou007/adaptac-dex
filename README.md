@@ -6,12 +6,26 @@
 
 # AdapTac-Dex: Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation
 
-[[Paper](https://arxiv.org/abs/2505.13982)] [[Website](https://adaptac-dex.github.io/)] [[Video](https://www.youtube.com/watch?v=Aq34cDWNBE8)] [[Hardware](https://drive.google.com/drive/folders)] [[Teleoperation](https://github.com/real-dex-suite/REAL-ROBO)]
 
+<p align="center">
+  <img src="docs/static/iros.png" alt="IROS Logo" height="100"/>
+</p>
 
-![IROS Logo](docs/static/iros.png)
+<p align="center">
+  <b>Authors:</b><br>
+  <a href="https://kingchou007.github.io/">Jinzhou Li</a> ·
+  <a href="https://tianhaowuhz.github.io/">Tianhao Wu</a> ·
+  <a href="https://jiyao06.github.io/">Jiyao Zhang</a> ·
+  <a href="https://chenzyn.github.io/">Zeyuan Chen</a> ·
+  <a>Haotian Jin</a> ·
+  <a href="https://aaronanima.github.io/">Mingdong Wu</a> ·
+  <a href="https://shenyujun.github.io/">Yujun Shen</a> ·
+  <a href="https://www.yangyaodong.com/">Yaodong Yang</a> ·
+  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+</p>
 
-[Jinzhou Li](https://kingchou007.github.io/), [Tianhao Wu](https://tianhaowuhz.github.io/), [Jiyao Zhang](https://jiyao06.github.io/), [Zeyuan Chen](https://chenzyn.github.io/), [Haotian Jin](), [Mingdong Wu](https://aaronanima.github.io/), [Yujun Shen](https://shenyujun.github.io/), [Yaodong Yang](https://www.yangyaodong.com/), [Hao Dong](https://zsdonghao.github.io/)
+[**Paper**](https://arxiv.org/abs/2505.13982) &nbsp;|&nbsp; [**Website**](https://adaptac-dex.github.io/) &nbsp;|&nbsp; [**Video**](https://www.youtube.com/watch?v=Aq34cDWNBE8) &nbsp;|&nbsp; [**Hardware**](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho) &nbsp;|&nbsp; [**Teleoperation**](https://github.com/real-dex-suite/REAL-ROBO)
+
 
 ## Abstract
 
@@ -31,16 +45,22 @@ Effectively utilizing multi-sensory data is important for robots to generalize a
 
 ## Quick Start
 
-1. **Install dependencies** (see [Installation](#installation) section below)
-2. **Generate training dataset**: Configure parameters in `scripts/generate_data.sh` and run:
+1. **Clone the repository** with submodules:
+   ```bash
+   git clone --recursive https://github.com/kingchou007/adaptac-dex.git
+   cd adaptac-dex
+   ```
+
+2. **Install dependencies** (see [Installation](#installation) section below)
+3. **Generate training dataset**: Configure parameters in `scripts/generate_data.sh` and run:
    ```bash
    bash scripts/generate_data.sh
    ```
-3. **Train your policy**: Modify configs in `src/adaptac/configs/tasks/` and run:
+4. **Train your policy**: Modify configs in `src/adaptac/configs/tasks/` and run:
    ```bash
    bash scripts/command_train.sh
    ```
-4. **Evaluate your policy**: Run:
+5. **Evaluate your policy**: Run:
    ```bash
    bash scripts/command_eval.sh
    ```
@@ -59,6 +79,21 @@ For detailed instructions, see the [Training Tutorial](#training-tutorial) secti
 - **Conda**: Anaconda or Miniconda
 - **Git**: For cloning repositories
 
+## Clone Repository
+
+Clone the repository with submodules:
+
+```bash
+git clone --recursive https://github.com/kingchou007/adaptac-dex.git
+cd adaptac-dex
+```
+
+If you've already cloned the repository without submodules, initialize them:
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Environment Setup
 
 Please follow the instructions to install the conda environments and the dependencies of the codebase. We recommend using CUDA 11.8 during installations to avoid compatibility issues.
@@ -76,8 +111,11 @@ Please follow the instructions to install the conda environments and the depende
     ```
 
 3. Install [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine) manually following [the official installation instructions](https://github.com/NVIDIA/MinkowskiEngine?tab=readme-ov-file#cuda-11x).
+    
+    **Note:** MinkowskiEngine is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
+    
     ```bash
-    mkdir dependencies && cd dependencies
+    cd dependencies
     conda install openblas-devel -c anaconda
     export CUDA_HOME=/usr/local/cuda-11.8
     git clone https://github.com/NVIDIA/MinkowskiEngine.git
@@ -87,10 +125,11 @@ Please follow the instructions to install the conda environments and the depende
     ```
 
 4. Install [Pytorch3D](https://github.com/facebookresearch/pytorch3d) manually.
+    
+    **Note:** Pytorch3D is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
+    
     ```bash
-    cd dependencies
-    git clone https://github.com/facebookresearch/pytorch3d.git
-    cd pytorch3d
+    cd dependencies/pytorch3d
     pip install -e .
     cd ../..
     ```
@@ -166,6 +205,15 @@ bash scripts/command_eval.sh
 - Verify USB port assignments match your hardware setup
 
 ## Common Issues
+
+### Git Submodule Issues
+
+**Submodules not initialized:**
+- If dependencies are missing, make sure you cloned with `--recursive` flag
+- Or run: `git submodule update --init --recursive`
+
+**Submodule out of sync:**
+- Update submodules to the latest commit: `git submodule update --remote`
 
 ### USB Port Configuration
 
