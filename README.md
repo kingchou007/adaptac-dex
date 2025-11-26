@@ -13,15 +13,15 @@
 
 <p align="center">
   <b>Authors:</b><br>
-  <a href="https://kingchou007.github.io/">Jinzhou Li</a> ·
-  <a href="https://tianhaowuhz.github.io/">Tianhao Wu</a> ·
-  <a href="https://jiyao06.github.io/">Jiyao Zhang</a> ·
-  <a href="https://chenzyn.github.io/">Zeyuan Chen</a> ·
-  <a>Haotian Jin</a> ·
+  <a href="https://kingchou007.github.io/">Jinzhou Li*</a> ·
+  <a href="https://tianhaowuhz.github.io/">Tianhao Wu*</a> ·
+  <a href="https://jiyao06.github.io/">Jiyao Zhang**</a> ·
+  <a href="https://chenzyn.github.io/">Zeyuan Chen**</a> ·
+  <a href="">Haotian Jin</a> ·
   <a href="https://aaronanima.github.io/">Mingdong Wu</a> ·
   <a href="https://shenyujun.github.io/">Yujun Shen</a> ·
   <a href="https://www.yangyaodong.com/">Yaodong Yang</a> ·
-  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+  <a href="https://zsdonghao.github.io/">Hao Dong†</a>
 </p>
 
 <p align="center">
