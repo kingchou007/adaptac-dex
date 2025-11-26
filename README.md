@@ -24,7 +24,13 @@
   <a href="https://zsdonghao.github.io/">Hao Dong</a>
 </p>
 
-[**Paper**](https://arxiv.org/abs/2505.13982) &nbsp;|&nbsp; [**Website**](https://adaptac-dex.github.io/) &nbsp;|&nbsp; [**Video**](https://www.youtube.com/watch?v=Aq34cDWNBE8) &nbsp;|&nbsp; [**Hardware**](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho) &nbsp;|&nbsp; [**Teleoperation**](https://github.com/real-dex-suite/REAL-ROBO)
+<p align="center">
+  <a href="https://arxiv.org/abs/2505.13982"><b>Paper</b></a>&nbsp;|&nbsp;
+  <a href="https://adaptac-dex.github.io/"><b>Website</b></a>&nbsp;|&nbsp;
+  <a href="https://www.youtube.com/watch?v=Aq34cDWNBE8"><b>Video</b></a>&nbsp;|&nbsp;
+  <a href="https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho"><b>Hardware</b></a>&nbsp;|&nbsp;
+  <a href="https://github.com/real-dex-suite/REAL-ROBO"><b>Teleoperation</b></a>
+</p>
 
 
 ## Abstract
