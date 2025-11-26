@@ -1,18 +1,33 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-2505.13982-b31b1b.svg)](https://arxiv.org/abs/2505.13982)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen)](https://adaptac-dex.github.io/)
+[![GitHub stars](https://img.shields.io/github/stars/kingchou007/adaptac-dex?style=social)](https://github.com/kingchou007/adaptac-dex)
 
 # AdapTac-Dex: Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation
 
 [[Paper](https://arxiv.org/abs/2505.13982)] [[Website](https://adaptac-dex.github.io/)] [[Video](https://www.youtube.com/watch?v=Aq34cDWNBE8)] [[Hardware](https://drive.google.com/drive/folders)] [[Teleoperation](https://github.com/real-dex-suite/REAL-ROBO)]
 
-Welcome to the official repository for the implementation of the paper titled **"AdapTac-Dex: Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation,"** accepted at IROS 2025.
 
 ![IROS Logo](docs/static/iros.png)
 
-**Authors:** Jinzhou Li, Tianhao Wu, Jiyao Zhang, Zeyuan Chen, Haotian Jin, Mingdong Wu, Yujun Shen, Yaodong Yang, and Hao Dong
+[Jinzhou Li](https://kingchou007.github.io/), [Tianhao Wu](https://tianhaowuhz.github.io/), [Jiyao Zhang](https://jiyao06.github.io/), [Zeyuan Chen](https://chenzyn.github.io/), [Haotian Jin](), [Mingdong Wu](https://aaronanima.github.io/), [Yujun Shen](https://shenyujun.github.io/), [Yaodong Yang](https://www.yangyaodong.com/), [Hao Dong](https://zsdonghao.github.io/)
 
 ## Abstract
 
 Effectively utilizing multi-sensory data is important for robots to generalize across diverse tasks. However, the heterogeneous nature of these modalities makes fusion challenging. Existing methods propose strategies to obtain comprehensively fused features but often ignore the fact that each modality requires different levels of attention at different manipulation stages. To address this, we propose a force-guided attention fusion module that adaptively adjusts the weights of visual and tactile features without human labeling. We also introduce a self-supervised future force prediction auxiliary task to reinforce the tactile modality, improve data imbalance, and encourage proper adjustment. Our method achieves an average success rate of 93% across three fine-grained, contact-rich tasks in real-world experiments. Further analysis shows that our policy appropriately adjusts attention to each modality at different manipulation stages.
+
+## TODO
+
+- [x] Add the hardware setup, [here](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho)
+- [x] Released the pre-trained [code](https://github.com/tianhaowuhz/3dtacdex) and [checkpoint](https://huggingface.co/kingchou007/3dTacDex/tree/main)
+  - We recommend training your own model using the provided code.
+
+- [x] Release the init code
+- [ ] Further clean up the code
+- [ ] Release the dataset
+- [ ] Clean Teleopeartion Code
+- [ ] Release the tutorial
 
 ## Quick Start
 
@@ -135,12 +150,6 @@ Run evaluation:
 bash scripts/command_eval.sh
 ```
 
-**Note:** Press `h` to reset the robot to the initial position during evaluation.
-
-### 4. Generate Test Results Video
-
-To generate videos from test results, configure the video generation parameters in your evaluation script or use a custom script. The video generation functionality should be integrated into your evaluation pipeline.
-
 ## Quick Navigation
 
 | Task | Script |
@@ -171,26 +180,6 @@ ls /dev/ttyUSB*
 ```bash
 sudo chmod 777 /dev/ttyUSB*  # Replace * with the specific USB port number
 ```
-
-### Installation Issues
-
-**MinkowskiEngine installation fails:**
-- Ensure CUDA 11.8 is properly installed and `CUDA_HOME` is set correctly
-- Verify that `openblas-devel` is installed: `conda install openblas-devel -c anaconda`
-
-**Pytorch3D installation fails:**
-- Make sure you have sufficient disk space
-- Try installing with verbose output: `pip install -e . -v`
-
-## TODO
-
-- [x] Add the hardware setup, [here](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho)
-- [x] Released the pre-trained [code](https://github.com/tianhaowuhz/3dtacdex) and [checkpoint](https://huggingface.co/kingchou007/3dTacDex/tree/main)
-  - We recommend training your own model using the provided code.
-<!-- - [ ] Release the dataset -->
-- [x] Release the init code
-- [ ] Further clean up the code
-- [ ] Release the tutorial
 
 ## Contact
 
