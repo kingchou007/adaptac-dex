@@ -1,0 +1,86 @@
+defaults:
+  - _self_ 
+  - tasks: open_box  # default task
+  - override /hydra/job_logging: disabled
+
+wandb: true
+data_path: ${tasks.dataset_root_path}/${tasks.dataset_name}
+aug: ${tasks.aug}
+aug_jitter: false
+num_action: 20
+voxel_size: 0.005
+obs_feature_dim: 512
+hidden_dim: 512
+nheads: 8
+num_encoder_layers: 4
+num_decoder_layers: 1
+dim_feedforward: 2048
+dropout: 0.1
+resume_ckpt: null
+resume_epoch: -1
+lr: 3e-4
+batch_size: 240
+num_epochs: 1000
+save_epochs: 1000
+num_workers: 8
+seed: 233
+enable_state: false
+state_dim: 25
+state_feat_dims: [64, 64]
+enable_state_mlp: false
+num_obs: 1
+norm_trans: true
+use_color: ${tasks.use_color}
+depth_mask: null
+eval_interval: 50
+test_ckpt_dir: null
+fuse_type: concat
+num_force_prediction: 0
+force_prediction_alpha: 10
+force_prediction_type: force
+predictor_feat_type: all # [all, visual]
+fuse_attention: [] # [global, local]
+tactile_encoder_learning_rate: 1e-5
+tactile_mask_ratio: 0
+tactile_weight_schedule: false
+pretrain_sparse_encoder_ckpt: null
+pretrain_sparse_encoder_transformer_ckpt: null
+pretrain_sparse_encoder_transformer_readout_embed_ckpt: null
+obs_net_force: true
+obs_force_guide_only: false
+with_rgb: false
+force_prediction_subtype: future # [future, obs]
+
+# augmentation
+aug_trans_min: ${tasks.aug_trans_min}
+aug_trans_max: ${tasks.aug_trans_max}
+aug_rot_min: ${tasks.aug_rot_min}
+aug_rot_max: ${tasks.aug_rot_max}
+
+# backbones
+backbones: resnet14
+tactile_backbone: maegat
+diffusion_head: unet # [unet, transformer]
+
+# dataset
+keys: [action, state, point_cloud, input_index]
+enable_tactile: false
+tactile_frame: "camera"
+mask_ratio: 0
+gen_pc: false
+action_type: abs
+net_force_scale: 5
+
+policy: ffg
+# hydra config
+exp_config: ""
+exp_name: ${now:%m.%d}_${now:%H.%M.%S}_${tasks.dataset_name}_${diffusion_head}_${num_action}${num_obs}_rgb:${tasks.use_color}_aug:${tasks.aug}_tact:${enable_tactile}+${fuse_type}+nfp${num_force_prediction}_${exp_config}
+output_dir: outputs/${now:%Y.%m.%d}/${exp_name}
+hydra:
+  job:
+    override_dirname: ${exp_name}
+  run:
+    dir: ${output_dir}
+  sweep:
+    dir: ${output_dir}
+    subdir: ${hydra.job.num}

@@ -1,0 +1,12 @@
+name: assembly
+
+dataset_name: assembly_l_25
+dataset_root_path: data
+
+use_color: false
+
+aug: false
+aug_trans_min: [-0.2, -0.2, -0.2]
+aug_trans_max: [0.2, 0.2, 0.2]
+aug_rot_min: [-30, -30, -30]
+aug_rot_max: [30, 30, 30]
