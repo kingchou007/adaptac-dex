@@ -29,7 +29,8 @@
   <a href="https://www.youtube.com/watch?v=Aq34cDWNBE8"><b>Video</b></a> | 
   <a href="https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho"><b>Hardware</b></a> | 
   <a href="https://github.com/real-dex-suite/REAL-ROBO"><b>Teleoperation</b></a> | 
-  <a https://drive.google.com/drive/folders/15ulxyqatllJSoYF68Aak8Ws4dzQKnEFf?usp=sharing"><b>Data</b></a>
+  <a href="https://drive.google.com/drive/folders/15ulxyqatllJSoYF68Aak8Ws4dzQKnEFf?usp=sharing"><b>Data</b></a>
+</p>
 
 </p>
 
@@ -105,7 +106,7 @@ git submodule update --init --recursive
 
 ## Environment Setup
 
-Please follow the instructions to install the conda environments and the dependencies of the codebase. We recommend using CUDA 11.8 during installations to avoid compatibility issues.
+Please follow the instructions to install the conda environments and the dependencies of the codebase. We recommend using CUDA 11.8 during installations to avoid compatibility issues. If you are using 5090 GPU, it might has some issue with MinkowskiEngine, maybe try to 
 
 1. Create a new conda environment and activate the environment.
 
