@@ -6,7 +6,6 @@
 
 # AdapTac-Dex: Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation
 
-
 <p align="center">
   <img src="docs/static/iros.png" alt="IROS Logo" height="100"/>
 </p>
@@ -25,13 +24,14 @@
 </p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2505.13982"><b>Paper</b></a>&nbsp;|&nbsp;
-  <a href="https://adaptac-dex.github.io/"><b>Website</b></a>&nbsp;|&nbsp;
-  <a href="https://www.youtube.com/watch?v=Aq34cDWNBE8"><b>Video</b></a>&nbsp;|&nbsp;
-  <a href="https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho"><b>Hardware</b></a>&nbsp;|&nbsp;
-  <a href="https://github.com/real-dex-suite/REAL-ROBO"><b>Teleoperation</b></a>
-</p>
+  <a href="https://arxiv.org/abs/2505.13982"><b>Paper</b></a> | 
+  <a href="https://adaptac-dex.github.io/"><b>Website</b></a> | 
+  <a href="https://www.youtube.com/watch?v=Aq34cDWNBE8"><b>Video</b></a> | 
+  <a href="https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho"><b>Hardware</b></a> | 
+  <a href="https://github.com/real-dex-suite/REAL-ROBO"><b>Teleoperation</b></a> | 
+  <a https://drive.google.com/drive/folders/15ulxyqatllJSoYF68Aak8Ws4dzQKnEFf?usp=sharing"><b>Data</b></a>
 
+</p>
 
 ## Abstract
 
@@ -39,34 +39,37 @@ Effectively utilizing multi-sensory data is important for robots to generalize a
 
 ## TODO
 
-- [x] Add the hardware setup, [here](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho)
-- [x] Released the pre-trained [code](https://github.com/tianhaowuhz/3dtacdex) and [checkpoint](https://huggingface.co/kingchou007/3dTacDex/tree/main)
-  - We recommend training your own model using the provided code.
+- [X] Add the hardware setup, [here](https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho)
+- [X] Released the pre-trained [code](https://github.com/tianhaowuhz/3dtacdex) and [checkpoint](https://huggingface.co/kingchou007/3dTacDex/tree/main)
 
-- [x] Release the init code
+  - We recommend training your own model using the provided code.
+- [X] Release the init code
+- [X] Release the dataset
 - [ ] Further clean up the code
-- [ ] Release the dataset
 - [ ] Clean Teleopeartion Code
 - [ ] Release the tutorial
 
 ## Quick Start
 
 1. **Clone the repository** with submodules:
+
    ```bash
    git clone --recursive https://github.com/kingchou007/adaptac-dex.git
    cd adaptac-dex
    ```
-
 2. **Install dependencies** (see [Installation](#installation) section below)
 3. **Generate training dataset**: Configure parameters in `scripts/generate_data.sh` and run:
+
    ```bash
    bash scripts/generate_data.sh
    ```
 4. **Train your policy**: Modify configs in `src/adaptac/configs/tasks/` and run:
+
    ```bash
    bash scripts/command_train.sh
    ```
 5. **Evaluate your policy**: Run:
+
    ```bash
    bash scripts/command_eval.sh
    ```
@@ -105,63 +108,63 @@ git submodule update --init --recursive
 Please follow the instructions to install the conda environments and the dependencies of the codebase. We recommend using CUDA 11.8 during installations to avoid compatibility issues.
 
 1. Create a new conda environment and activate the environment.
-    ```bash
-    conda create -n adaptac python=3.8
-    conda activate adaptac
-    ```
 
+   ```bash
+   conda create -n adaptac python=3.8
+   conda activate adaptac
+   ```
 2. Install necessary dependencies.
-    ```bash
-    conda install cudatoolkit=11.8
-    pip install -r requirements.txt
-    ```
 
+   ```bash
+   conda install cudatoolkit=11.8
+   pip install -r requirements.txt
+   ```
 3. Install [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine) manually following [the official installation instructions](https://github.com/NVIDIA/MinkowskiEngine?tab=readme-ov-file#cuda-11x).
-    
-    **Note:** MinkowskiEngine is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
-    
-    ```bash
-    cd dependencies
-    conda install openblas-devel -c anaconda
-    export CUDA_HOME=/usr/local/cuda-11.8
-    git clone https://github.com/NVIDIA/MinkowskiEngine.git
-    cd MinkowskiEngine
-    python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
-    cd ../..
-    ```
 
+   **Note:** MinkowskiEngine is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
+
+   ```bash
+   cd dependencies
+   conda install openblas-devel -c anaconda
+   export CUDA_HOME=/usr/local/cuda-11.8
+   git clone https://github.com/NVIDIA/MinkowskiEngine.git
+   cd MinkowskiEngine
+   python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+   cd ../..
+   ```
 4. Install [Pytorch3D](https://github.com/facebookresearch/pytorch3d) manually.
-    
-    **Note:** Pytorch3D is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
-    
-    ```bash
-    cd dependencies/pytorch3d
-    pip install -e .
-    cd ../..
-    ```
+
+   **Note:** Pytorch3D is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
+
+   ```bash
+   cd dependencies/pytorch3d
+   pip install -e .
+   cd ../..
+   ```
 5. (Optional) If you'd like to visualize point clouds in service, install the visualizer package:
 
-    ```bash
-    # Install Plotly and Kaleido for point cloud visualization
-    pip install kaleido plotly
+   ```bash
+   # Install Plotly and Kaleido for point cloud visualization
+   pip install kaleido plotly
 
-    cd dependencies
-    cd visualizer && pip install -e .
-    cd ../..
-    ```
+   cd dependencies
+   cd visualizer && pip install -e .
+   cd ../..
+   ```
 
 ## Real Robot Setup
 
 ### Hardware Requirements
+
 - [Flexiv Rizon 4](https://www.flexiv.com/products/rizon?reload=1764163581143) Robotic Arm
 - Leap Hand: Please refer to the [LEAP Hand API repository](https://github.com/leap-hand/LEAP_Hand_API) for installation and setup instructions
 - Intel [RealSense](https://www.intel.com/content/www/us/en/architecture-and-technology/realsense-overview.html) RGB-D Camera (D415/D435/L515)
 - [Paxini](https://omnisharingdb.paxini.com/) Tactile sensor
 
 ### Software Requirements
+
 - Ubuntu 20.04 (tested) with previous environment installed
 - If you are using Intel RealSense RGB-D camera, install the python wrapper `pyrealsense2` of `librealsense` according to [the official installation instructions](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python#installation).
-
 
 ## Training Tutorial
 
@@ -175,6 +178,7 @@ Before running the script, please configure these key parameters in `scripts/gen
 - `tactile_rep_type`: Type of tactile representation
 
 Then run:
+
 ```bash
 bash scripts/generate_data.sh
 ```
@@ -197,11 +201,11 @@ bash scripts/command_eval.sh
 
 ## Quick Navigation
 
-| Task | Script |
-|------|--------|
+| Task               | Script                       |
+| ------------------ | ---------------------------- |
 | Dataset Generation | `scripts/generate_data.sh` |
-| Training | `scripts/command_train.sh` |
-| Evaluation | `scripts/command_eval.sh` |
+| Training           | `scripts/command_train.sh` |
+| Evaluation         | `scripts/command_eval.sh`  |
 
 ## Tips
 
@@ -215,10 +219,12 @@ bash scripts/command_eval.sh
 ### Git Submodule Issues
 
 **Submodules not initialized:**
+
 - If dependencies are missing, make sure you cloned with `--recursive` flag
 - Or run: `git submodule update --init --recursive`
 
 **Submodule out of sync:**
+
 - Update submodules to the latest commit: `git submodule update --remote`
 
 ### USB Port Configuration
@@ -226,11 +232,13 @@ bash scripts/command_eval.sh
 We assign USB 0 for tactile sensor 1, USB 1 for tactile sensor 2, and USB 2 for the hand. Please make sure the USB port is correct.
 
 **Check USB ports:**
+
 ```bash
 ls /dev/ttyUSB*
 ```
 
 **Grant permissions to USB ports:**
+
 ```bash
 sudo chmod 777 /dev/ttyUSB*  # Replace * with the specific USB port number
 ```
