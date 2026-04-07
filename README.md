@@ -29,9 +29,7 @@
   <a href="https://www.youtube.com/watch?v=Aq34cDWNBE8"><b>Video</b></a> | 
   <a href="https://drive.google.com/drive/folders/1dJnF192aBb8VxeNBQRBstrCrC3GcPKho"><b>Hardware</b></a> | 
   <a href="https://github.com/real-dex-suite/REAL-ROBO"><b>Teleoperation</b></a> | 
-  <a href="https://drive.google.com/drive/folders/15ulxyqatllJSoYF68Aak8Ws4dzQKnEFf?usp=sharing"><b>Data</b></a>
-</p>
-
+  <a href="https://drive.google.com/file/d/1F6mV1sTDIK1wW3m17eX2PGON7JJenPq3/view?usp=sharing"><b>Data</b></a>
 </p>
 
 ## Abstract
@@ -47,7 +45,7 @@ Effectively utilizing multi-sensory data is important for robots to generalize a
 - [X] Release the init code
 - [X] Release the dataset
 - [ ] Further clean up the code
-- [ ] Clean Teleopeartion Code
+- [ ] Clean Teleoperation Code
 - [ ] Release the tutorial
 
 ## Quick Start
@@ -106,7 +104,7 @@ git submodule update --init --recursive
 
 ## Environment Setup
 
-Please follow the instructions to install the conda environments and the dependencies of the codebase. We recommend using CUDA 11.8 during installations to avoid compatibility issues. If you are using 5090 GPU, it might has some issue with MinkowskiEngine, maybe try to 
+Please follow the instructions to install the conda environments and the dependencies of the codebase. We recommend using CUDA 11.8 during installations to avoid compatibility issues. If you are using 50-series GPUs, it might have some issues with MinkowskiEngine, try using [this fork](https://github.com/chenxi-wang/MinkowskiEngine) instead.
 
 1. Create a new conda environment and activate the environment.
 
@@ -125,11 +123,9 @@ Please follow the instructions to install the conda environments and the depende
    **Note:** MinkowskiEngine is included as a Git submodule. If you cloned with `--recursive`, it should already be available. Otherwise, initialize submodules first (see [Clone Repository](#clone-repository) section).
 
    ```bash
-   cd dependencies
    conda install openblas-devel -c anaconda
    export CUDA_HOME=/usr/local/cuda-11.8
-   git clone https://github.com/NVIDIA/MinkowskiEngine.git
-   cd MinkowskiEngine
+   cd dependencies/MinkowskiEngine
    python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
    cd ../..
    ```
